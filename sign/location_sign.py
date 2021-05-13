@@ -24,7 +24,7 @@ def location_sign(cookies,activeId,courseId,classId):
         ('ifTiJiao', '1'),
     )
     response = requests.get('https://mobilelearn.chaoxing.com/pptSign/stuSignajax', headers=headers, params=params, cookies=cookies)
-    if response.text == 'success':
-        # print('位置签到成功')
+    res = response.text
+    if res == 'success' or res == '您已签到过了':
         return 1
     return 0
